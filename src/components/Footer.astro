@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-andes-900 py-8">
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 text-center text-sm text-slate-400 sm:flex-row sm:px-6 sm:text-left"
+  >
+    <p>© {year} {site.name}. {site.location}.</p>
+    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
+      <a
+        href={site.linkedin}
+        target="_blank"
+        rel="noopener"
+        class="py-2 font-medium text-slate-300 transition hover:text-turq">LinkedIn</a
+      >
+      <button
+        type="button"
+        data-copy-email={site.email}
+        aria-label={`Copiar correo ${site.email}`}
+        title="Copiar correo"
+        class="inline-flex cursor-pointer items-center gap-1.5 py-2 font-medium text-slate-300 transition hover:text-turq"
+      >
+        <Icon name="heroicons:clipboard-document" class="copy-idle h-4 w-4" />
+        <Icon name="heroicons:check" class="copy-done hidden h-4 w-4 text-turq" />
+        <span class="copy-label" aria-live="polite">{site.email}</span>
+      </button>
+    </div>
+  </div>
+</footer>

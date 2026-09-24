@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+import { diagnosticoWhatsapp } from '../data/site';
+---
+
+<section id="inicio" class="relative overflow-hidden bg-andes pt-32 pb-24 sm:pt-40 sm:pb-32">
+  <!-- Montañas decorativas -->
+  <svg
+    class="pointer-events-none absolute inset-x-0 bottom-0 w-full"
+    viewBox="0 0 1440 220"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M0 220 L180 90 L330 170 L520 40 L700 150 L880 70 L1060 160 L1250 60 L1440 140 L1440 220 Z"
+      fill="#16395A"
+      opacity=".55"></path>
+    <path
+      d="M0 220 L240 140 L420 190 L640 110 L860 190 L1080 120 L1300 180 L1440 150 L1440 220 Z"
+      fill="#0A1E30"></path>
+  </svg>
+  <div class="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-turq/20 blur-3xl">
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-4 text-center sm:px-6">
+    <span
+      class="inline-flex items-center gap-2 rounded-full border border-turq/30 bg-turq/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-turq uppercase"
+    >
+      Software e IA para pymes de Sudamérica
+    </span>
+    <h1
+      class="mx-auto mt-6 max-w-4xl text-4xl leading-tight font-extrabold text-white sm:text-5xl lg:text-6xl"
+    >
+      Creamos software a la medida y soluciones con <span class="text-turq">IA</span> para que tu pyme
+      trabaje más simple y crezca.
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
+      Deja atrás el Excel, el papel y los mensajes perdidos. Construimos herramientas pensadas para
+      cómo funciona tu negocio.
+    </p>
+    <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a
+        href={diagnosticoWhatsapp}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-turq px-7 py-3.5 font-semibold text-andes shadow-lg shadow-turq/20 transition hover:bg-turq-400"
+      >
+        Agenda tu diagnóstico gratis de 30 min
+        <Icon name="heroicons:arrow-right" class="h-5 w-5" />
+      </a>
+      <a
+        href="#servicios"
+        class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white/20"
+      >
+        Ver servicios
+      </a>
+    </div>
+  </div>
+</section>

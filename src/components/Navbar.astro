@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon/components';
+import Logo from './Logo.astro';
+import { navLinks, diagnosticoWhatsapp } from '../data/site';
+---
+
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-andes/90 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+    <a href="#inicio" class="flex items-center gap-2">
+      <Logo />
+      <span class="text-lg font-bold text-white">Andes<span class="text-turq">Ai</span>Solutions</span>
+    </a>
+
+    <div class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+      {navLinks.map((link) => <a href={link.href} class="hover:text-white">{link.label}</a>)}
+      <a
+        href={diagnosticoWhatsapp}
+        target="_blank"
+        rel="noopener"
+        class="rounded-full bg-turq px-5 py-2 font-semibold text-andes transition hover:bg-turq-400"
+      >
+        Diagnóstico gratis
+      </a>
+    </div>
+
+    <button
+      id="menu-btn"
+      class="text-white md:hidden"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <Icon name="heroicons:bars-3" class="menu-open h-7 w-7" />
+      <Icon name="heroicons:x-mark" class="menu-close hidden h-7 w-7" />
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden border-t border-white/10 px-4 pb-4 md:hidden">
+    <div class="flex flex-col gap-3 pt-3 text-slate-300">
+      {navLinks.map((link) => <a href={link.href} class="py-2">{link.label}</a>)}
+      <a
+        href={diagnosticoWhatsapp}
+        target="_blank"
+        rel="noopener"
+        class="mt-2 flex min-h-12 items-center justify-center rounded-full bg-turq px-5 py-3 font-semibold text-andes"
+      >
+        Diagnóstico gratis
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const button = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  if (button && menu) {
+    const setOpen = (open: boolean): void => {
+      menu.classList.toggle('hidden', !open);
+      button.setAttribute('aria-expanded', String(open));
+      button.querySelector('.menu-open')?.classList.toggle('hidden', open);
+      button.querySelector('.menu-close')?.classList.toggle('hidden', !open);
+    };
+
+    button.addEventListener('click', () => setOpen(menu.classList.contains('hidden')));
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  }
+</script>

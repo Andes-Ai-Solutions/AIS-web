@@ -1,0 +1,17 @@
+---
+// Isotipo de AndesAiSolutions en vector (recreado desde src/assets/brand/logo-original.webp).
+// variant="light": barras blancas, para fondos oscuros. variant="dark": barras azul marca, para fondos claros.
+interface Props {
+  class?: string;
+  variant?: 'light' | 'dark';
+}
+
+const { class: className = 'h-8 w-8', variant = 'light' } = Astro.props;
+const barColor = variant === 'light' ? '#FFFFFF' : '#0F2A43';
+---
+
+<svg class={className} viewBox="0 0 732 677" fill="none" aria-hidden="true">
+  <circle cx="366" cy="63" r="57" fill="#00B4A6"></circle>
+  <path d="M302 147 L360 208 L111 667 L11 667 Z" fill={barColor}></path>
+  <path d="M430 147 L372 208 L621 667 L721 667 Z" fill={barColor}></path>
+</svg>

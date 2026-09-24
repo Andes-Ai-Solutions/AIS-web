@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from './SectionHeader.astro';
+import { needs, site, whatsappLink } from '../data/site';
+---
+
+<section id="que-necesitas" class="py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <SectionHeader eyebrow="¿Qué necesitas?" title="Cuéntame qué buscas y hablemos" />
+
+    <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
+      {
+        needs.map((need, i) => (
+          <div
+            class:list={[
+              'flex flex-col rounded-2xl border border-slate-200 p-6 transition hover:border-turq/60 hover:shadow-md sm:p-8',
+              // Si el total es impar, la última tarjeta se centra con el mismo ancho que las demás
+              {
+                'md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]':
+                  needs.length % 2 === 1 && i === needs.length - 1,
+              },
+            ]}
+          >
+            <div class="flex items-center gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-turq-50 text-turq-600">
+                <Icon name={need.icon} class="h-6 w-6" />
+              </div>
+              <h3 class="text-lg font-semibold text-andes sm:text-xl">{need.title}</h3>
+            </div>
+            <p class="mt-4 leading-relaxed">{need.description}</p>
+
+            <div class="mt-6 flex flex-col items-stretch gap-3 sm:items-start">
+              <a
+                href={whatsappLink(need.message)}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-turq px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-andes transition hover:bg-turq-400"
+              >
+                <Icon name="heroicons:chat-bubble-oval-left-ellipsis" class="h-4 w-4" />
+                Escribir por WhatsApp
+              </a>
+
+              <!-- Correo visible + botón para copiarlo (sirve con Gmail, Outlook o lo que use el cliente) -->
+              <div class="flex max-w-full items-center gap-2 rounded-full border border-slate-200 bg-slate-50 py-1 pr-1 pl-4">
+                <Icon name="heroicons:envelope" class="h-4 w-4 shrink-0 text-turq-600" />
+                <span class="min-w-0 truncate text-sm text-andes select-all">{site.email}</span>
+                <button
+                  type="button"
+                  data-copy-email={site.email}
+                  class="ml-auto inline-flex min-h-9 shrink-0 cursor-pointer items-center gap-1.5 rounded-full bg-white px-3 text-sm font-semibold text-andes ring-1 ring-slate-200 transition hover:ring-turq"
+                  aria-label={`Copiar correo ${site.email}`}
+                >
+                  <Icon name="heroicons:clipboard-document" class="copy-idle h-4 w-4" />
+                  <Icon name="heroicons:check" class="copy-done hidden h-4 w-4 text-turq-600" />
+                  <span class="copy-label" aria-live="polite">Copiar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+/* Colores y tipografía de la marca AndesAiSolutions */
+@theme {
+  --color-andes: #0f2a43;
+  --color-andes-700: #16395a;
+  --color-andes-900: #0a1e30;
+
+  --color-turq: #00b4a6;
+  --color-turq-50: #e6f8f6;
+  --color-turq-400: #1fd1c2;
+  --color-turq-600: #00978b;
+
+  --font-sans: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
+}

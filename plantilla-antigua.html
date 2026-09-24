@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AndesAiSolutions | Software a la medida e IA para pymes</title>
+  <meta name="description" content="Creamos software a la medida y soluciones con IA para que las pymes trabajen más simple y crezcan." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F2A43'/%3E%3Cpath d='M4 25 L12 10 L17 18 L21 13 L28 25 Z' fill='none' stroke='%2300B4A6' stroke-width='2.2' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='10' r='2.2' fill='%2300B4A6'/%3E%3Ccircle cx='21' cy='13' r='2.2' fill='%2300B4A6'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            andes: { DEFAULT: '#0F2A43', 900: '#0A1E30', 800: '#0F2A43', 700: '#16395A' },
+            turq: { DEFAULT: '#00B4A6', 400: '#1FD1C2', 600: '#00978B', 50: '#E6F8F6' },
+          },
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-white font-sans text-slate-700 antialiased">
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-andes/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+      <a href="#inicio" class="flex items-center gap-2">
+        <!-- Placeholder del logo: reemplazar por el logo real (img/logo.svg) -->
+        <svg class="h-8 w-8" viewBox="0 0 32 32" fill="none">
+          <path d="M3 26 L12 9 L17 18 L21 12 L29 26 Z" stroke="#00B4A6" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="12" cy="9" r="2" fill="#00B4A6"/>
+          <circle cx="21" cy="12" r="2" fill="#00B4A6"/>
+          <circle cx="17" cy="18" r="1.6" fill="#fff"/>
+        </svg>
+        <span class="text-lg font-bold text-white">Andes<span class="text-turq">Ai</span>Solutions</span>
+      </a>
+
+      <div class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+        <a href="#problemas" class="hover:text-white">Problemas</a>
+        <a href="#servicios" class="hover:text-white">Servicios</a>
+        <a href="#proceso" class="hover:text-white">Cómo trabajo</a>
+        <a href="#quien-soy" class="hover:text-white">Quién soy</a>
+        <a href="#contacto" class="rounded-full bg-turq px-5 py-2 font-semibold text-andes transition hover:bg-turq-400">Diagnóstico gratis</a>
+      </div>
+
+      <button id="menuBtn" class="text-white md:hidden" aria-label="Abrir menú">
+        <!-- Heroicon: bars-3 -->
+        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-white/10 px-4 pb-4 md:hidden">
+      <div class="flex flex-col gap-3 pt-3 text-slate-300">
+        <a href="#problemas" class="py-1">Problemas</a>
+        <a href="#servicios" class="py-1">Servicios</a>
+        <a href="#proceso" class="py-1">Cómo trabajo</a>
+        <a href="#quien-soy" class="py-1">Quién soy</a>
+        <a href="#contacto" class="mt-2 rounded-full bg-turq px-5 py-2 text-center font-semibold text-andes">Diagnóstico gratis</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="inicio" class="relative overflow-hidden bg-andes pt-32 pb-24 sm:pt-40 sm:pb-32">
+    <!-- Montañas decorativas -->
+    <svg class="pointer-events-none absolute inset-x-0 bottom-0 w-full text-andes-700" viewBox="0 0 1440 220" preserveAspectRatio="none" fill="currentColor">
+      <path d="M0 220 L180 90 L330 170 L520 40 L700 150 L880 70 L1060 160 L1250 60 L1440 140 L1440 220 Z" opacity=".55"/>
+      <path d="M0 220 L240 140 L420 190 L640 110 L860 190 L1080 120 L1300 180 L1440 150 L1440 220 Z" class="text-andes-900" fill="#0A1E30"/>
+    </svg>
+    <div class="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-turq/20 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-6xl px-4 text-center sm:px-6">
+      <span class="inline-flex items-center gap-2 rounded-full border border-turq/30 bg-turq/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-turq">
+        Software e IA para pymes de Sudamérica
+      </span>
+      <h1 class="mx-auto mt-6 max-w-4xl text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+        Creamos software a la medida y soluciones con <span class="text-turq">IA</span> para que tu pyme trabaje más simple y crezca.
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
+        Deja atrás el Excel, el papel y los mensajes perdidos. Construimos herramientas pensadas para cómo funciona tu negocio.
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-turq px-7 py-3.5 font-semibold text-andes shadow-lg shadow-turq/20 transition hover:bg-turq-400">
+          Agenda tu diagnóstico gratis de 30 min
+          <!-- Heroicon: arrow-right -->
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+        </a>
+        <a href="#servicios" class="rounded-full border border-white/30 bg-white/10 px-7 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white/20">
+          Ver servicios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEMAS ============ -->
+  <section id="problemas" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wider text-turq-600">¿Te suena familiar?</p>
+        <h2 class="mt-3 text-3xl font-bold text-andes sm:text-4xl">¿Sigues llevando tu negocio en Excel y WhatsApp?</h2>
+      </div>
+
+      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-turq-50 text-turq-600">
+            <!-- Heroicon: table-cells -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" /></svg>
+          </div>
+          <h3 class="mt-5 font-semibold text-andes">Hojas de Excel por todos lados</h3>
+          <p class="mt-2 text-sm leading-relaxed">Versiones duplicadas, fórmulas rotas y nadie sabe cuál es el archivo correcto.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-turq-50 text-turq-600">
+            <!-- Heroicon: chat-bubble-left-right -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
+          </div>
+          <h3 class="mt-5 font-semibold text-andes">Pedidos perdidos en el chat</h3>
+          <p class="mt-2 text-sm leading-relaxed">Clientes que escriben por WhatsApp y la información se pierde entre cientos de mensajes.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-turq-50 text-turq-600">
+            <!-- Heroicon: clock -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+          </div>
+          <h3 class="mt-5 font-semibold text-andes">Horas en tareas repetitivas</h3>
+          <p class="mt-2 text-sm leading-relaxed">Copiar datos, armar reportes a mano y hacer lo mismo todos los días.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-turq-50 text-turq-600">
+            <!-- Heroicon: question-mark-circle -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" /></svg>
+          </div>
+          <h3 class="mt-5 font-semibold text-andes">Decisiones a ciegas</h3>
+          <p class="mt-2 text-sm leading-relaxed">No sabes con claridad cuánto vendes, qué se mueve o dónde se va el dinero.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICIOS ============ -->
+  <section id="servicios" class="bg-slate-50 py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wider text-turq-600">Servicios</p>
+        <h2 class="mt-3 text-3xl font-bold text-andes sm:text-4xl">Tecnología hecha a la medida de tu negocio</h2>
+      </div>
+
+      <div class="mt-14 grid gap-6 md:grid-cols-2">
+        <div class="group rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-andes text-turq">
+            <!-- Heroicon: device-phone-mobile -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+          </div>
+          <h3 class="mt-5 text-xl font-semibold text-andes">Apps web y móviles a la medida</h3>
+          <p class="mt-2 leading-relaxed">Aplicaciones diseñadas para tus procesos, no al revés. Para tu equipo o para tus clientes.</p>
+        </div>
+
+        <div class="group rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-andes text-turq">
+            <!-- Heroicon: squares-2x2 -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" /></svg>
+          </div>
+          <h3 class="mt-5 text-xl font-semibold text-andes">Sistemas de gestión</h3>
+          <p class="mt-2 leading-relaxed">Inventario, ventas, clientes y operación en un solo lugar, accesible desde cualquier dispositivo.</p>
+        </div>
+
+        <div class="group rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-andes text-turq">
+            <!-- Heroicon: sparkles -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" /></svg>
+          </div>
+          <h3 class="mt-5 text-xl font-semibold text-andes">Automatización con IA</h3>
+          <p class="mt-2 leading-relaxed">Deja que la inteligencia artificial haga el trabajo repetitivo: respuestas, clasificación, documentos y más.</p>
+        </div>
+
+        <div class="group rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-andes text-turq">
+            <!-- Heroicon: chart-bar -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg>
+          </div>
+          <h3 class="mt-5 text-xl font-semibold text-andes">Bases de datos y reportes</h3>
+          <p class="mt-2 leading-relaxed">Tu información ordenada y segura, con reportes claros para tomar mejores decisiones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO TRABAJO ============ -->
+  <section id="proceso" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wider text-turq-600">Cómo trabajo</p>
+        <h2 class="mt-3 text-3xl font-bold text-andes sm:text-4xl">Un proceso claro, sin sorpresas</h2>
+      </div>
+
+      <ol class="relative mt-14 grid gap-10 md:grid-cols-4 md:gap-6">
+        <div class="absolute left-0 right-0 top-6 hidden h-0.5 bg-gradient-to-r from-turq/0 via-turq/40 to-turq/0 md:block"></div>
+
+        <li class="relative text-center">
+          <div class="relative mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-turq text-lg font-bold text-andes ring-8 ring-white">1</div>
+          <h3 class="mt-5 font-semibold text-andes">Diagnóstico gratis</h3>
+          <p class="mt-2 text-sm leading-relaxed">30 minutos para entender tu negocio y dónde se está perdiendo tiempo.</p>
+        </li>
+        <li class="relative text-center">
+          <div class="relative mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-turq text-lg font-bold text-andes ring-8 ring-white">2</div>
+          <h3 class="mt-5 font-semibold text-andes">Propuesta</h3>
+          <p class="mt-2 text-sm leading-relaxed">Te presento una solución concreta, con alcance, tiempos y costo claros.</p>
+        </li>
+        <li class="relative text-center">
+          <div class="relative mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-turq text-lg font-bold text-andes ring-8 ring-white">3</div>
+          <h3 class="mt-5 font-semibold text-andes">Desarrollo por fases</h3>
+          <p class="mt-2 text-sm leading-relaxed">Avances visibles en cada fase para que valides y ajustemos a tiempo.</p>
+        </li>
+        <li class="relative text-center">
+          <div class="relative mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-turq text-lg font-bold text-andes ring-8 ring-white">4</div>
+          <h3 class="mt-5 font-semibold text-andes">Entrega</h3>
+          <p class="mt-2 text-sm leading-relaxed">Tu solución funcionando, con capacitación para tu equipo y acompañamiento.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ QUIÉN SOY ============ -->
+  <section id="quien-soy" class="bg-slate-50 py-20 sm:py-28">
+    <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 md:grid-cols-5">
+      <div class="md:col-span-2">
+        <!-- Placeholder de foto: reemplazar por una foto real -->
+        <div class="relative mx-auto aspect-square max-w-xs overflow-hidden rounded-3xl bg-andes">
+          <!-- Patrón sutil de puntos tipo red -->
+          <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#00B4A6 1px, transparent 1px); background-size: 18px 18px;"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <!-- Logo de montaña con nodos (placeholder hasta tener foto) -->
+            <svg class="h-40 w-40" viewBox="0 0 32 32" fill="none">
+              <path d="M3 26 L12 9 L17 18 L21 12 L29 26 Z" stroke="#00B4A6" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M12 9 L21 12 M17 18 L12 26 M17 18 L22 26" stroke="#00B4A6" stroke-width="0.6" stroke-opacity=".5"/>
+              <circle cx="12" cy="9" r="1.4" fill="#00B4A6"/>
+              <circle cx="21" cy="12" r="1.4" fill="#00B4A6"/>
+              <circle cx="17" cy="18" r="1.1" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-turq/25 to-transparent"></div>
+        </div>
+      </div>
+
+      <div class="md:col-span-3">
+        <p class="text-sm font-semibold uppercase tracking-wider text-turq-600">Quién soy</p>
+        <h2 class="mt-3 text-3xl font-bold text-andes sm:text-4xl">Hola, soy Santiago</h2>
+        <p class="mt-5 text-lg leading-relaxed">
+          Soy estudiante de Ingeniería de Sistemas en la Universidad Autónoma de Manizales (UAM) y fundador de AndesAiSolutions.
+          Trabajo directamente contigo, sin intermediarios, para convertir los procesos de tu negocio en herramientas simples y útiles.
+        </p>
+        <div class="mt-6 flex items-center gap-2 text-sm text-slate-500">
+          <!-- Heroicon: map-pin -->
+          <svg class="h-5 w-5 text-turq-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
+          Manizales, Colombia · Trabajo remoto en toda Sudamérica
+        </div>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="rounded-full bg-white px-3 py-1 text-sm font-medium text-andes ring-1 ring-slate-200">Angular</span>
+          <span class="rounded-full bg-white px-3 py-1 text-sm font-medium text-andes ring-1 ring-slate-200">TypeScript</span>
+          <span class="rounded-full bg-white px-3 py-1 text-sm font-medium text-andes ring-1 ring-slate-200">.NET</span>
+          <span class="rounded-full bg-white px-3 py-1 text-sm font-medium text-andes ring-1 ring-slate-200">PostgreSQL</span>
+          <span class="rounded-full bg-white px-3 py-1 text-sm font-medium text-andes ring-1 ring-slate-200">IA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA / CONTACTO ============ -->
+  <section id="contacto" class="relative overflow-hidden bg-andes py-20 sm:py-28">
+    <div class="pointer-events-none absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-turq/20 blur-3xl"></div>
+    <div class="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <h2 class="text-3xl font-bold text-white sm:text-4xl">Hablemos de tu negocio</h2>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-slate-200">
+        Agenda un diagnóstico gratis de 30 minutos. Sin compromiso: te cuento qué se puede mejorar y cómo.
+      </p>
+
+      <a href="mailto:andesai.solutions@gmail.com?subject=Quiero%20mi%20diagn%C3%B3stico%20gratis"
+         class="mt-10 inline-flex items-center gap-2 rounded-full bg-turq px-8 py-4 font-semibold text-andes shadow-lg shadow-turq/20 transition hover:bg-turq-400">
+        <!-- Heroicon: calendar-days -->
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
+        Quiero mi diagnóstico gratis
+      </a>
+
+      <div class="mt-12 grid gap-4 sm:grid-cols-2">
+        <a href="mailto:andesai.solutions@gmail.com" class="flex items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white transition hover:bg-white/10">
+          <!-- Heroicon: envelope -->
+          <svg class="h-6 w-6 text-turq" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+          <span class="text-sm sm:text-base">andesai.solutions@gmail.com</span>
+        </a>
+        <!-- TODO: poner URL real de LinkedIn -->
+        <a href="#" target="_blank" rel="noopener" class="flex items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-white transition hover:bg-white/10">
+          <!-- Heroicon: link -->
+          <svg class="h-6 w-6 text-turq" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-andes-900 py-8">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 text-sm text-slate-400 sm:flex-row sm:px-6">
+      <p>© <span id="year"></span> AndesAiSolutions. Manizales, Colombia.</p>
+      <p>Software a la medida e IA para pymes.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from './SectionHeader.astro';
+import { problems } from '../data/site';
+---
+
+<section id="problemas" class="py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <SectionHeader
+      eyebrow="¿Te suena familiar?"
+      title="¿Sigues llevando tu negocio en Excel y WhatsApp?"
+    />
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        problems.map((p) => (
+          <div class="rounded-2xl border border-slate-200 p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-turq-50 text-turq-600">
+              <Icon name={p.icon} class="h-6 w-6" />
+            </div>
+            <h3 class="mt-5 font-semibold text-andes">{p.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed">{p.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
