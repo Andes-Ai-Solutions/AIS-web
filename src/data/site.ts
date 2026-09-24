@@ -8,6 +8,7 @@ export const site = {
   email: 'andesai.solutions@gmail.com',
   whatsapp: '573046123335',
   linkedin: 'https://www.linkedin.com/company/146630745',
+  instagram: 'https://www.instagram.com/andesaisolutions',
   location: 'Manizales, Colombia',
 };
 

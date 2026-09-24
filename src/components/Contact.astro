@@ -28,7 +28,7 @@ import { site, diagnosticoWhatsapp } from '../data/site';
         type="button"
         data-copy-email={site.email}
         aria-label={`Copiar correo ${site.email}`}
-        class="group flex min-h-16 cursor-pointer items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white transition hover:bg-white/10"
+        class="group flex min-h-16 sm:col-span-2 cursor-pointer items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white transition hover:bg-white/10"
       >
         <Icon name="heroicons:envelope" class="h-6 w-6 shrink-0 text-turq" />
         <span class="min-w-0 truncate text-sm sm:text-base">{site.email}</span>
@@ -48,6 +48,15 @@ import { site, diagnosticoWhatsapp } from '../data/site';
       >
         <Icon name="heroicons:link" class="h-6 w-6 text-turq" />
         <span>LinkedIn</span>
+      </a>
+      <a
+        href={site.instagram}
+        target="_blank"
+        rel="noopener"
+        class="flex min-h-16 items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition hover:bg-white/10"
+      >
+        <Icon name="heroicons:camera" class="h-6 w-6 text-turq" />
+        <span>Instagram</span>
       </a>
     </div>
   </div>
