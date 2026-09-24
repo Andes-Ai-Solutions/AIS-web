@@ -10,6 +10,8 @@ export const site = {
   linkedin: 'https://www.linkedin.com/company/146630745',
   instagram: 'https://www.instagram.com/andesaisolutions',
   location: 'Manizales, Colombia',
+  // Verificación de propiedad en Google Search Console
+  googleVerification: 'ZS8naumiwZrVlHwvX9yOG_39BWZs0wJLdxEw-SBC73E',
 };
 
 /** Enlace a WhatsApp con el mensaje ya escrito. */
