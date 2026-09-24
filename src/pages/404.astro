@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import Logo from '../components/Logo.astro';
+import { site, diagnosticoWhatsapp } from '../data/site';
+---
+
+<Layout title={`Página no encontrada | ${site.name}`} noindex>
+  <main class="relative flex min-h-screen items-center justify-center overflow-hidden bg-andes px-4">
+    <!-- Montañas decorativas, igual que en la portada -->
+    <svg
+      class="pointer-events-none absolute inset-x-0 bottom-0 w-full"
+      viewBox="0 0 1440 220"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 220 L180 90 L330 170 L520 40 L700 150 L880 70 L1060 160 L1250 60 L1440 140 L1440 220 Z"
+        fill="#16395A"
+        opacity=".55"></path>
+      <path
+        d="M0 220 L240 140 L420 190 L640 110 L860 190 L1080 120 L1300 180 L1440 150 L1440 220 Z"
+        fill="#0A1E30"></path>
+    </svg>
+    <div class="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-turq/20 blur-3xl">
+    </div>
+
+    <div class="relative py-16 text-center">
+      <a href="/" class="inline-flex items-center gap-2" aria-label={`Ir al inicio de ${site.name}`}>
+        <Logo class="h-9 w-9" />
+        <span class="text-lg font-bold text-white">Andes<span class="text-turq">Ai</span>Solutions</span>
+      </a>
+
+      <p class="mt-10 text-sm font-semibold tracking-wider text-turq uppercase">Error 404</p>
+      <h1 class="mx-auto mt-3 max-w-xl text-4xl font-extrabold text-white sm:text-5xl">
+        Parece que te perdiste en la montaña
+      </h1>
+      <p class="mx-auto mt-5 max-w-md text-lg text-slate-200">
+        La página que buscas no existe o cambió de lugar. Vuelve al inicio y retomamos desde ahí.
+      </p>
+
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/"
+          class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-turq px-7 py-3 font-semibold text-andes shadow-lg shadow-turq/20 transition hover:bg-turq-400"
+        >
+          <Icon name="heroicons:home" class="h-5 w-5" />
+          Volver al inicio
+        </a>
+        <a
+          href={diagnosticoWhatsapp}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/20"
+        >
+          Agendar diagnóstico gratis
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>

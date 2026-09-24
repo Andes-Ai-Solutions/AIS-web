@@ -10,6 +10,7 @@
   --color-turq-50: #e6f8f6;
   --color-turq-400: #1fd1c2;
   --color-turq-600: #00978b;
+  --color-turq-700: #007f74; /* texto pequeño sobre fondo claro: contraste AA */
 
   --font-sans: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
 }
