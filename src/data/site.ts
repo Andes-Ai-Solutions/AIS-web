@@ -2,6 +2,8 @@
 
 export const site = {
   name: 'AndesAiSolutions',
+  /** Responsable del negocio y del tratamiento de datos (persona natural, sin RUT por ahora). */
+  owner: 'Santiago Molina Ríos',
   title: 'AndesAiSolutions | Software e IA a la medida para pymes',
   description:
     'Desarrollo de software a la medida y soluciones con IA para pymes. Diagnóstico gratis de 30 minutos, sin compromiso.',
@@ -83,7 +85,7 @@ export const services: Item[] = [
     icon: 'heroicons:chart-bar',
     title: 'Bases de datos y reportes',
     description:
-      'Tu información ordenada y segura, con reportes claros para tomar mejores decisiones.',
+      'Tu información ordenada y protegida, con reportes claros para tomar mejores decisiones.',
   },
 ];
 
@@ -103,7 +105,7 @@ export const needs: Need[] = [
   {
     icon: 'heroicons:device-phone-mobile',
     title: 'Desarrollo móvil',
-    description: 'Apps para Android y iPhone, para tu equipo o tus clientes.',
+    description: 'Apps móviles para tu equipo o tus clientes.',
     message:
       'Hola, me interesa una app móvil para mi negocio. ¿Podemos agendar el diagnóstico gratis de 30 minutos?',
   },

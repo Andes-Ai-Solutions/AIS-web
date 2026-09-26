@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import NewTab from './NewTab.astro';
 import SectionHeader from './SectionHeader.astro';
 import { needs, site, whatsappLink } from '../data/site';
 ---
@@ -37,7 +38,7 @@ import { needs, site, whatsappLink } from '../data/site';
                 class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-turq px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-andes transition hover:bg-turq-400"
               >
                 <Icon name="heroicons:chat-bubble-oval-left-ellipsis" class="h-4 w-4" />
-                Escribir por WhatsApp
+                Escribir por WhatsApp<span class="sr-only"> sobre {need.title}</span><NewTab />
               </a>
 
               <!-- Correo visible + botón para copiarlo (sirve con Gmail, Outlook o lo que use el cliente) -->

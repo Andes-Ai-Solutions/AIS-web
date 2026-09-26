@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import NewTab from './NewTab.astro';
 import { site } from '../data/site';
 
 const year = new Date().getFullYear();
@@ -7,21 +8,27 @@ const year = new Date().getFullYear();
 
 <footer class="bg-andes-900 py-8">
   <div
-    class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 text-center text-sm text-slate-400 sm:flex-row sm:px-6 sm:text-left"
+    class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-center text-sm text-slate-400 sm:px-6 lg:flex-row lg:text-left"
   >
-    <p>© {year} {site.name}. {site.location}.</p>
+    <div class="space-y-1">
+      <p>© {year} {site.name}. {site.location}.</p>
+      <p class="text-xs">{site.owner}</p>
+    </div>
     <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
+      <a href="/privacidad" class="py-2 font-medium text-slate-300 transition hover:text-turq">
+        Política de privacidad
+      </a>
       <a
         href={site.linkedin}
         target="_blank"
         rel="noopener"
-        class="py-2 font-medium text-slate-300 transition hover:text-turq">LinkedIn</a
+        class="py-2 font-medium text-slate-300 transition hover:text-turq">LinkedIn<NewTab /></a
       >
       <a
         href={site.instagram}
         target="_blank"
         rel="noopener"
-        class="py-2 font-medium text-slate-300 transition hover:text-turq">Instagram</a
+        class="py-2 font-medium text-slate-300 transition hover:text-turq">Instagram<NewTab /></a
       >
       <button
         type="button"

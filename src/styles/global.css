@@ -14,3 +14,18 @@
 
   --font-sans: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
 }
+
+/*
+ * Foco visible al navegar con teclado (no aparece al hacer clic con el mouse).
+ * Doble anillo: turquesa por fuera y azul Andes por dentro, así se ve tanto en secciones claras como oscuras.
+ */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-turq);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-andes);
+}
+
+/* El destino del enlace "Saltar al contenido" recibe el foco, pero no necesita el anillo. */
+main:focus {
+  outline: none;
+}

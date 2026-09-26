@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import NewTab from './NewTab.astro';
 import { site, diagnosticoWhatsapp } from '../data/site';
 ---
 
@@ -20,7 +21,7 @@ import { site, diagnosticoWhatsapp } from '../data/site';
       class="mt-10 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-turq px-8 py-4 font-semibold text-andes shadow-lg shadow-turq/20 transition hover:bg-turq-400"
     >
       <Icon name="heroicons:calendar-days" class="h-5 w-5" />
-      Quiero mi diagnóstico gratis
+      Quiero mi diagnóstico gratis<NewTab />
     </a>
 
     <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -47,7 +48,7 @@ import { site, diagnosticoWhatsapp } from '../data/site';
         class="flex min-h-16 items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition hover:bg-white/10"
       >
         <Icon name="heroicons:link" class="h-6 w-6 text-turq" />
-        <span>LinkedIn</span>
+        <span>LinkedIn<NewTab /></span>
       </a>
       <a
         href={site.instagram}
@@ -56,7 +57,7 @@ import { site, diagnosticoWhatsapp } from '../data/site';
         class="flex min-h-16 items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition hover:bg-white/10"
       >
         <Icon name="heroicons:camera" class="h-6 w-6 text-turq" />
-        <span>Instagram</span>
+        <span>Instagram<NewTab /></span>
       </a>
     </div>
   </div>

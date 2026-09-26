@@ -45,6 +45,13 @@ const ogImage = new URL('/og.png', Astro.site);
     <meta name="twitter:image" content={ogImage} />
   </head>
   <body class="bg-white font-sans text-slate-700 antialiased">
+    <!-- Solo aparece al navegar con teclado (Tab): salta el menú y va directo al contenido -->
+    <a
+      href="#contenido"
+      class="sr-only rounded-full bg-turq px-5 py-3 font-semibold text-andes focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100]"
+    >
+      Saltar al contenido
+    </a>
     <slot />
     <script>
       import '../scripts/copy-email';

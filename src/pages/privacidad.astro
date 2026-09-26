@@ -1,0 +1,190 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import Logo from '../components/Logo.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+// Actualizar esta fecha cada vez que cambie el contenido de la política.
+const updatedAt = '25 de septiembre de 2026';
+---
+
+<Layout
+  title={`Política de privacidad | ${site.name}`}
+  description={`Cómo ${site.name} trata los datos personales de quienes la contactan, según la Ley 1581 de 2012.`}
+>
+  <header class="bg-andes">
+    <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 sm:px-6">
+      <a href="/" class="flex items-center gap-2" aria-label={`Ir al inicio de ${site.name}`}>
+        <Logo />
+        <span class="text-lg font-bold text-white">Andes<span class="text-turq">Ai</span>Solutions</span>
+      </a>
+      <a href="/" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-300 hover:text-white">
+        <Icon name="heroicons:arrow-left" class="h-4 w-4" /> Volver al inicio
+      </a>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1" class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+    <p class="text-sm font-semibold tracking-wider text-turq-700 uppercase">Legal</p>
+    <h1 class="mt-3 text-3xl font-bold text-andes sm:text-4xl">Política de tratamiento de datos personales</h1>
+    <p class="mt-3 text-sm text-slate-500">Última actualización: {updatedAt}</p>
+
+    <div class="mt-10 space-y-10 leading-relaxed [&_a]:font-semibold [&_a]:text-turq-700 [&_a]:underline [&_a]:underline-offset-2 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-andes [&_li+li]:mt-1.5 [&_p]:mt-3 [&_strong]:text-andes [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:pl-6">
+      <section>
+        <h2>1. Quién es el responsable</h2>
+        <p>
+          El responsable del tratamiento de tus datos es <strong>{site.owner}</strong>, persona natural, que ofrece
+          sus servicios bajo el nombre comercial <strong>{site.name}</strong>, con domicilio en {site.location}.
+        </p>
+        <p>
+          Correo de contacto para todo lo relacionado con tus datos:
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+        <p>
+          Esta política se rige por la Ley 1581 de 2012 y el Decreto 1377 de 2013 (compilado en el Decreto 1074 de
+          2015), que regulan la protección de datos personales en Colombia.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Qué datos tratamos</h2>
+        <p>
+          Este sitio web <strong>no tiene formularios</strong> y no pide que ingreses datos en él. Solo tratamos los
+          datos que tú decides compartir cuando nos contactas por WhatsApp, correo electrónico, LinkedIn o Instagram:
+        </p>
+        <ul>
+          <li>Tu nombre y el de tu negocio.</li>
+          <li>Tus datos de contacto: número de teléfono o WhatsApp, correo y perfiles de redes sociales.</li>
+          <li>
+            La información que nos cuentes sobre tu negocio y sus procesos, para poder entender qué necesitas.
+          </li>
+          <li>
+            Si llegamos a trabajar juntos: datos del proyecto, acuerdos, documentos y registro de pagos.
+          </li>
+        </ul>
+        <p>No pedimos ni tratamos datos sensibles (salud, orientación política, religiosa, biométricos, etc.).</p>
+      </section>
+
+      <section>
+        <h2>3. Para qué los usamos</h2>
+        <ul>
+          <li>Responder tus mensajes y consultas.</li>
+          <li>Agendar y realizar el diagnóstico gratuito.</li>
+          <li>Preparar propuestas y cotizaciones.</li>
+          <li>Desarrollar el proyecto, darle seguimiento y brindarte soporte.</li>
+          <li>Gestionar la relación comercial: acuerdos, facturación y pagos.</li>
+        </ul>
+        <p>
+          <strong>No enviamos publicidad ni mensajes masivos</strong>, y solo te contactamos para responder a lo que
+          nos pediste o por el proyecto que tengamos en curso. <strong>Nunca vendemos ni alquilamos tus datos.</strong>
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Cómo nos das tu autorización</h2>
+        <p>
+          Al escribirnos por cualquiera de nuestros canales y compartir tus datos, nos autorizas a tratarlos solo para
+          las finalidades descritas en esta política. Puedes revocar esa autorización en cualquier momento (ver punto
+          7).
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Dónde se guardan y quién más interviene</h2>
+        <p>
+          Para comunicarnos y trabajar usamos herramientas de terceros, que procesan los datos según sus propias
+          políticas y pueden almacenarlos fuera de Colombia:
+        </p>
+        <ul>
+          <li><strong>WhatsApp</strong> (Meta), para los mensajes.</li>
+          <li><strong>Gmail</strong> (Google), para el correo.</li>
+          <li><strong>LinkedIn</strong> e <strong>Instagram</strong>, si nos contactas por ahí.</li>
+          <li>
+            <strong>Netlify</strong>, que aloja este sitio web y puede registrar datos técnicos de la visita (como la
+            dirección IP) por seguridad y funcionamiento.
+          </li>
+        </ul>
+        <p>
+          Si trabajamos juntos, la información de tu proyecto se registra en una herramienta interna de gestión, de uso
+          exclusivo de {site.name}.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Cookies y analítica</h2>
+        <p>
+          Este sitio <strong>no usa cookies</strong> ni herramientas de analítica, publicidad o seguimiento. Por eso no
+          te pedimos que aceptes cookies.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Tus derechos</h2>
+        <p>Como titular de tus datos tienes derecho a:</p>
+        <ul>
+          <li>Conocer, actualizar y corregir tus datos.</li>
+          <li>Pedir prueba de la autorización que nos diste.</li>
+          <li>Saber para qué hemos usado tus datos.</li>
+          <li>
+            Revocar la autorización y pedir que eliminemos tus datos, siempre que no debamos conservarlos por una
+            obligación legal o contractual.
+          </li>
+          <li>Acceder gratis a tus datos.</li>
+          <li>
+            Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) si consideras que no respetamos
+            estos derechos.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>8. Cómo ejercer tus derechos</h2>
+        <p>
+          Escríbenos a <a href={`mailto:${site.email}`}>{site.email}</a> contándonos quién eres y qué necesitas
+          (consultar, corregir, actualizar o eliminar tus datos).
+        </p>
+        <ul>
+          <li><strong>Consultas:</strong> respondemos en máximo 10 días hábiles.</li>
+          <li>
+            <strong>Reclamos</strong> (corrección, actualización, eliminación o revocatoria): respondemos en máximo 15
+            días hábiles.
+          </li>
+        </ul>
+        <p>Si necesitamos más tiempo, te avisaremos antes de que se venza el plazo, como indica la ley.</p>
+      </section>
+
+      <section>
+        <h2>9. Cuánto tiempo los conservamos</h2>
+        <p>
+          Conservamos tus datos mientras sean necesarios para las finalidades de esta política: mientras dure la
+          conversación o el proyecto, y después el tiempo que exijan las obligaciones legales o contractuales. Cuando
+          ya no sean necesarios, los eliminamos.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. Seguridad</h2>
+        <p>
+          Tomamos medidas razonables para proteger tus datos contra acceso no autorizado, pérdida o uso indebido, como
+          accesos restringidos con contraseña y el uso de herramientas confiables.
+        </p>
+      </section>
+
+      <section>
+        <h2>11. Menores de edad</h2>
+        <p>Nuestros servicios están dirigidos a negocios y no recolectamos a sabiendas datos de menores de edad.</p>
+      </section>
+
+      <section>
+        <h2>12. Cambios a esta política</h2>
+        <p>
+          Si cambiamos esta política, publicaremos la nueva versión en esta página con su fecha de actualización.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+

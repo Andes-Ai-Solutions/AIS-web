@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { diagnosticoWhatsapp } from '../data/site';
+import NewTab from './NewTab.astro';
 ---
 
 <section id="inicio" class="relative overflow-hidden bg-andes pt-32 pb-24 sm:pt-40 sm:pb-32">
@@ -45,7 +46,7 @@ import { diagnosticoWhatsapp } from '../data/site';
         rel="noopener"
         class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-turq px-7 py-3.5 font-semibold text-andes shadow-lg shadow-turq/20 transition hover:bg-turq-400"
       >
-        Agenda tu diagnóstico gratis de 30 min
+        Agenda tu diagnóstico gratis de 30 min<NewTab />
         <Icon name="heroicons:arrow-right" class="h-5 w-5" />
       </a>
       <a
