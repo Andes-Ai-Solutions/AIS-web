@@ -1,47 +1,50 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Logo from './Logo.astro';
+import Topo from './Topo.astro';
 import { site, techStack } from '../data/site';
 ---
 
-<section id="quien-soy" class="py-20 sm:py-28">
-  <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 md:grid-cols-5">
-    <div class="md:col-span-2">
-      <!-- Placeholder hasta tener foto: logo sobre patrón de puntos -->
-      <div class="relative mx-auto aspect-square max-w-xs overflow-hidden rounded-3xl bg-andes">
-        <div
-          class="absolute inset-0 opacity-20"
-          style="background-image: radial-gradient(#00B4A6 1px, transparent 1px); background-size: 18px 18px;"
-        >
-        </div>
+<section id="quien-soy" class="py-24 sm:py-32">
+  <div class="mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 md:grid-cols-5">
+    <div data-reveal class="md:col-span-2">
+      <!-- Placeholder hasta tener foto: logo sobre curvas de nivel que giran muy despacio -->
+      <div
+        class="relative mx-auto aspect-square max-w-xs overflow-hidden rounded-[2rem] border border-white/10 bg-linear-to-br from-andes to-andes-950 shadow-[0_0_80px_-20px_rgb(0_180_166/0.45)]"
+      >
+        <Topo
+          class="absolute inset-[-25%] h-[150%] w-[150%] text-turq/15 motion-safe:animate-spin-slow"
+          rings={14}
+          seed={4}
+        />
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgb(6_18_29/0.9),transparent_60%)]"></div>
         <div class="absolute inset-0 flex items-center justify-center">
-          <Logo class="h-32 w-36" />
+          <Logo class="h-32 w-36 drop-shadow-[0_0_24px_rgb(0_180_166/0.35)]" />
         </div>
-        <div class="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-turq/25 to-transparent"></div>
       </div>
     </div>
 
-    <div class="md:col-span-3">
-      <p class="text-sm font-semibold tracking-wider text-turq-700 uppercase">Quién soy</p>
-      <h2 class="mt-3 text-3xl font-bold text-andes sm:text-4xl">Hola, soy Santiago</h2>
-      <p class="mt-5 text-lg leading-relaxed">
-        Soy estudiante de Ingeniería de Sistemas en la Universidad Autónoma de Manizales (UAM) y
-        fundador de AndesAiSolutions. Trabajo directamente contigo, sin intermediarios, para
-        convertir los procesos de tu negocio en herramientas simples y útiles.
+    <div data-reveal style="--reveal-delay: 120ms" class="md:col-span-3">
+      <p class="text-sm font-semibold tracking-[0.2em] text-turq-400 uppercase">Quién soy</p>
+      <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">Hola, soy Santiago</h2>
+      <p class="mt-6 text-lg leading-relaxed text-slate-300">
+        Soy estudiante de Ingeniería de Sistemas en la Universidad Autónoma de Manizales (UAM) y fundador de
+        AndesAiSolutions. Trabajo directamente contigo, sin intermediarios, para convertir los procesos de tu negocio
+        en herramientas simples y útiles.
       </p>
-      <div class="mt-6 flex items-center gap-2 text-sm text-slate-500">
-        <Icon name="heroicons:map-pin" class="h-5 w-5 text-turq-600" />
+      <div class="mt-6 flex items-center gap-2 text-sm text-slate-400">
+        <Icon name="heroicons:map-pin" class="h-5 w-5 text-turq-400" />
         {site.location} · Trabajo remoto en toda Sudamérica
       </div>
-      <div class="mt-6 flex flex-wrap gap-2">
+      <ul class="mt-7 flex flex-wrap gap-2" aria-label="Tecnologías con las que trabajo">
         {
           techStack.map((tech) => (
-            <span class="rounded-full bg-slate-50 px-3 py-1 text-sm font-medium text-andes ring-1 ring-slate-200">
+            <li class="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-slate-200 transition hover:border-turq/40 hover:text-white">
               {tech}
-            </span>
+            </li>
           ))
         }
-      </div>
+      </ul>
     </div>
   </div>
 </section>

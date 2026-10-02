@@ -1,0 +1,33 @@
+---
+// Botón-enlace de la marca. primary: turquesa con brillo; ghost: translúcido.
+// external: abre en otra pestaña y avisa a los lectores de pantalla.
+import NewTab from './NewTab.astro';
+
+interface Props {
+  href: string;
+  variant?: 'primary' | 'ghost';
+  external?: boolean;
+  class?: string;
+}
+
+const { href, variant = 'primary', external = false, class: className } = Astro.props;
+---
+
+<a
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener' : undefined}
+  class:list={[
+    'group/btn relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3.5 font-semibold transition duration-300',
+    variant === 'primary' && [
+      'bg-turq text-andes-950 shadow-[0_0_40px_-10px_rgb(0_180_166/0.8)] hover:bg-turq-400 hover:shadow-[0_0_50px_-6px_rgb(0_180_166/0.9)]',
+      // Destello que cruza el botón al pasar el mouse
+      'before:absolute before:inset-y-0 before:-left-1/2 before:w-1/3 before:skew-x-[-20deg] before:bg-white/35 before:transition-[left] before:duration-700 hover:before:left-[130%] motion-reduce:before:hidden',
+    ],
+    variant === 'ghost' &&
+      'border border-white/15 bg-white/5 text-white backdrop-blur hover:border-white/30 hover:bg-white/10',
+    className,
+  ]}
+>
+  <span class="relative inline-flex items-center gap-2"><slot /></span>{external && <NewTab />}
+</a>

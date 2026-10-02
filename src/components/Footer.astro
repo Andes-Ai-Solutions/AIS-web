@@ -1,44 +1,37 @@
 ---
 import { Icon } from 'astro-icon/components';
+import Logo from './Logo.astro';
 import NewTab from './NewTab.astro';
 import { site } from '../data/site';
 
 const year = new Date().getFullYear();
+const link = 'py-2 font-medium text-slate-300 transition hover:text-turq-400';
 ---
 
-<footer class="bg-andes-900 py-8">
+<footer class="border-t border-white/10 bg-andes-950 py-10">
   <div
-    class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-center text-sm text-slate-400 sm:px-6 lg:flex-row lg:text-left"
+    class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 text-center text-sm text-slate-400 sm:px-6 lg:flex-row lg:text-left"
   >
-    <div class="space-y-1">
-      <p>© {year} {site.name}. {site.location}.</p>
-      <p class="text-xs">{site.owner}</p>
+    <div class="flex flex-col items-center gap-3 lg:flex-row lg:gap-4">
+      <Logo class="h-8 w-8" />
+      <div class="space-y-1">
+        <p>© {year} {site.name}. {site.location}.</p>
+        <p class="text-xs">{site.owner}</p>
+      </div>
     </div>
     <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
-      <a href="/privacidad" class="py-2 font-medium text-slate-300 transition hover:text-turq">
-        Política de privacidad
-      </a>
-      <a
-        href={site.linkedin}
-        target="_blank"
-        rel="noopener"
-        class="py-2 font-medium text-slate-300 transition hover:text-turq">LinkedIn<NewTab /></a
-      >
-      <a
-        href={site.instagram}
-        target="_blank"
-        rel="noopener"
-        class="py-2 font-medium text-slate-300 transition hover:text-turq">Instagram<NewTab /></a
-      >
+      <a href="/privacidad" class={link}>Política de privacidad</a>
+      <a href={site.linkedin} target="_blank" rel="noopener" class={link}>LinkedIn<NewTab /></a>
+      <a href={site.instagram} target="_blank" rel="noopener" class={link}>Instagram<NewTab /></a>
       <button
         type="button"
         data-copy-email={site.email}
         aria-label={`Copiar correo ${site.email}`}
         title="Copiar correo"
-        class="inline-flex cursor-pointer items-center gap-1.5 py-2 font-medium text-slate-300 transition hover:text-turq"
+        class:list={[link, 'inline-flex cursor-pointer items-center gap-1.5']}
       >
         <Icon name="heroicons:clipboard-document" class="copy-idle h-4 w-4" />
-        <Icon name="heroicons:check" class="copy-done hidden h-4 w-4 text-turq" />
+        <Icon name="heroicons:check" class="copy-done hidden h-4 w-4 text-turq-400" />
         <span class="copy-label" aria-live="polite">{site.email}</span>
       </button>
     </div>

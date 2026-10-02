@@ -1,0 +1,33 @@
+---
+// Curvas de nivel decorativas, como las de un mapa topográfico de montaña.
+// Se calculan al compilar (no usan JS en el navegador). El color sale de currentColor.
+interface Props {
+  class?: string;
+  rings?: number;
+  seed?: number;
+}
+
+const { class: className, rings = 12, seed = 1 } = Astro.props;
+const center = 200;
+const points = 120;
+
+const paths = Array.from({ length: rings }, (_, k) => {
+  const radius = 14 + k * 15;
+  const coords = Array.from({ length: points }, (_, i) => {
+    const a = (i / points) * Math.PI * 2;
+    const wobble =
+      1 +
+      0.13 * Math.sin(3 * a + seed + k * 0.35) +
+      0.07 * Math.sin(5 * a - seed * 2 + k * 0.2) +
+      0.04 * Math.cos(7 * a + k * 0.5);
+    const x = center + Math.cos(a) * radius * wobble;
+    const y = center + Math.sin(a) * radius * wobble;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  return `M${coords.join('L')}Z`;
+});
+---
+
+<svg class={className} viewBox="0 0 400 400" fill="none" aria-hidden="true">
+  {paths.map((d) => <path d={d} stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke" />)}
+</svg>

@@ -1,0 +1,22 @@
+---
+// Fondo animado de la cordillera (lógica en src/scripts/andes-terrain.ts).
+// horizon: altura del horizonte como fracción del alto (0.62 = 62 % desde arriba).
+interface Props {
+  class?: string;
+  horizon?: number;
+}
+
+const { class: className, horizon = 0.62 } = Astro.props;
+---
+
+<canvas
+  data-andes-terrain
+  data-horizon={horizon}
+  class:list={['pointer-events-none block h-full w-full', className]}
+  aria-hidden="true"></canvas>
+
+<script>
+  import { mountTerrain } from '../scripts/andes-terrain';
+
+  document.querySelectorAll<HTMLCanvasElement>('canvas[data-andes-terrain]').forEach(mountTerrain);
+</script>

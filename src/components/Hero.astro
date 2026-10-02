@@ -1,60 +1,95 @@
 ---
 import { Icon } from 'astro-icon/components';
+import AndesBackground from './AndesBackground.astro';
+import Button from './Button.astro';
 import { diagnosticoWhatsapp } from '../data/site';
-import NewTab from './NewTab.astro';
+
+const highlights = ['Diagnóstico gratis de 30 min', 'Avances por fases', 'Trato directo, sin intermediarios'];
 ---
 
-<section id="inicio" class="relative overflow-hidden bg-andes pt-32 pb-24 sm:pt-40 sm:pb-32">
-  <!-- Montañas decorativas -->
-  <svg
-    class="pointer-events-none absolute inset-x-0 bottom-0 w-full"
-    viewBox="0 0 1440 220"
-    preserveAspectRatio="none"
-    aria-hidden="true"
+<section
+  id="inicio"
+  class="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-andes-950 pt-32 pb-44 sm:pt-40"
+>
+  <AndesBackground class="absolute inset-0 -z-20" horizon={0.66} />
+  <!-- Sombra suave detrás del texto para que se lea sobre las montañas -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_65%_55%_at_50%_38%,rgb(6_18_29/0.8),transparent_75%)]"
   >
-    <path
-      d="M0 220 L180 90 L330 170 L520 40 L700 150 L880 70 L1060 160 L1250 60 L1440 140 L1440 220 Z"
-      fill="#16395A"
-      opacity=".55"></path>
-    <path
-      d="M0 220 L240 140 L420 190 L640 110 L860 190 L1080 120 L1300 180 L1440 150 L1440 220 Z"
-      fill="#0A1E30"></path>
-  </svg>
-  <div class="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-turq/20 blur-3xl">
+  </div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-b from-transparent to-andes-950">
   </div>
 
-  <div class="relative mx-auto max-w-6xl px-4 text-center sm:px-6">
+  <div class="mx-auto w-full max-w-6xl px-4 text-center sm:px-6">
     <span
-      class="inline-flex items-center gap-2 rounded-full border border-turq/30 bg-turq/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-turq uppercase"
+      data-reveal
+      class="inline-flex items-center gap-2.5 rounded-full border border-turq/30 bg-turq/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-turq-400 uppercase backdrop-blur"
     >
+      <span class="relative flex h-2 w-2" aria-hidden="true">
+        <span class="absolute inline-flex h-full w-full rounded-full bg-turq opacity-75 motion-safe:animate-ping"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-turq"></span>
+      </span>
       Software e IA para pymes de Sudamérica
     </span>
+
     <h1
-      class="mx-auto mt-6 max-w-4xl text-4xl leading-tight font-extrabold text-white sm:text-5xl lg:text-6xl"
+      data-reveal
+      style="--reveal-delay: 100ms"
+      class="mx-auto mt-7 max-w-4xl text-4xl leading-[1.08] font-extrabold tracking-tight text-balance text-white sm:text-6xl lg:text-7xl"
     >
-      Creamos software a la medida y soluciones con <span class="text-turq">IA</span> para que tu pyme
-      trabaje más simple y crezca.
+      Creamos software a la medida y soluciones con{' '}
+      <span
+        class="bg-linear-to-r from-turq via-cyan-200 to-turq bg-[length:200%_auto] bg-clip-text text-transparent motion-safe:animate-shimmer"
+        >IA</span
+      >{' '}
+      para que tu pyme trabaje más simple y crezca.
     </h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
-      Deja atrás el Excel, el papel y los mensajes perdidos. Construimos herramientas pensadas para
-      cómo funciona tu negocio.
+
+    <p
+      data-reveal
+      style="--reveal-delay: 200ms"
+      class="mx-auto mt-7 max-w-2xl text-lg text-pretty text-slate-300 sm:text-xl"
+    >
+      Deja atrás el Excel, el papel y los mensajes perdidos. Construimos herramientas pensadas para cómo funciona tu
+      negocio.
     </p>
-    <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-      <a
-        href={diagnosticoWhatsapp}
-        target="_blank"
-        rel="noopener"
-        class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-turq px-7 py-3.5 font-semibold text-andes shadow-lg shadow-turq/20 transition hover:bg-turq-400"
-      >
-        Agenda tu diagnóstico gratis de 30 min<NewTab />
-        <Icon name="heroicons:arrow-right" class="h-5 w-5" />
-      </a>
-      <a
-        href="#servicios"
-        class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white/20"
-      >
-        Ver servicios
-      </a>
+
+    <div
+      data-reveal
+      style="--reveal-delay: 300ms"
+      class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+    >
+      <Button href={diagnosticoWhatsapp} external>
+        Agenda tu diagnóstico gratis
+        <Icon
+          name="heroicons:arrow-right"
+          class="h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1"
+        />
+      </Button>
+      <Button href="#servicios" variant="ghost">Ver servicios</Button>
     </div>
+
+    <ul
+      data-reveal
+      style="--reveal-delay: 400ms"
+      class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300"
+    >
+      {
+        highlights.map((item) => (
+          <li class="inline-flex items-center gap-1.5">
+            <Icon name="heroicons:check-circle" class="h-5 w-5 text-turq-400" />
+            {item}
+          </li>
+        ))
+      }
+    </ul>
   </div>
+
+  <a
+    href="#problemas"
+    class="absolute bottom-8 left-1/2 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full border border-white/15 bg-andes-950/60 text-slate-300 backdrop-blur transition hover:border-turq/50 hover:text-white"
+    aria-label="Bajar a la siguiente sección"
+  >
+    <Icon name="heroicons:chevron-down" class="h-5 w-5 motion-safe:animate-bounce" />
+  </a>
 </section>

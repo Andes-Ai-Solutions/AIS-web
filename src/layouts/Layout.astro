@@ -15,10 +15,14 @@ const ogImage = new URL('/og.png', Astro.site);
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="bg-andes-950 motion-safe:scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <!-- Con JS activo se habilitan las animaciones de aparición (ver global.css) -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06121d" />
+    <meta name="color-scheme" content="dark" />
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
@@ -44,17 +48,19 @@ const ogImage = new URL('/og.png', Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
   </head>
-  <body class="bg-white font-sans text-slate-700 antialiased">
+  <body class="bg-andes-950 font-sans text-slate-300 antialiased selection:bg-turq/30 selection:text-white">
     <!-- Solo aparece al navegar con teclado (Tab): salta el menú y va directo al contenido -->
     <a
       href="#contenido"
-      class="sr-only rounded-full bg-turq px-5 py-3 font-semibold text-andes focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100]"
+      class="sr-only rounded-full bg-turq px-5 py-3 font-semibold text-andes-950 focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100]"
     >
       Saltar al contenido
     </a>
     <slot />
     <script>
       import '../scripts/copy-email';
+      import '../scripts/reveal';
+      import '../scripts/spotlight';
     </script>
   </body>
 </html>

@@ -1,0 +1,23 @@
+---
+// Tarjeta oscura con borde sutil y un brillo turquesa que sigue al mouse (src/scripts/spotlight.ts).
+// as="a" la vuelve un enlace completo.
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'> & {
+  as?: 'div' | 'a';
+};
+
+const { as: Tag = 'div', class: className, ...rest } = Astro.props;
+---
+
+<Tag
+  data-spotlight
+  class:list={[
+    'group relative isolate h-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition duration-300 hover:border-turq/40 hover:bg-white/[0.05]',
+    'before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(420px_circle_at_var(--x,50%)_var(--y,50%),rgb(0_180_166/0.14),transparent_45%)] before:opacity-0 before:transition before:duration-300 hover:before:opacity-100',
+    className,
+  ]}
+  {...rest}
+>
+  <slot />
+</Tag>

@@ -5,20 +5,29 @@ import NewTab from './NewTab.astro';
 import { navLinks, diagnosticoWhatsapp } from '../data/site';
 ---
 
-<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-andes/90 backdrop-blur">
-  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-    <a href="#inicio" class="flex items-center gap-2">
-      <Logo />
-      <span class="text-lg font-bold text-white">Andes<span class="text-turq">Ai</span>Solutions</span>
+<!-- Barra flotante: transparente arriba; al bajar se vuelve una píldora con fondo difuminado (data-scrolled) -->
+<header id="site-header" class="group/header fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
+  <nav
+    class="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-transparent px-4 py-2.5 transition-all duration-300 group-data-[scrolled]/header:border-white/10 group-data-[scrolled]/header:bg-andes-950/75 group-data-[scrolled]/header:shadow-lg group-data-[scrolled]/header:shadow-black/30 group-data-[scrolled]/header:backdrop-blur-xl sm:px-5"
+  >
+    <a href="#inicio" class="flex items-center gap-2.5">
+      <Logo class="h-8 w-8" />
+      <span class="text-lg font-bold tracking-tight text-white">Andes<span class="text-turq">Ai</span>Solutions</span>
     </a>
 
-    <div class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
-      {navLinks.map((link) => <a href={link.href} class="hover:text-white">{link.label}</a>)}
+    <div class="hidden items-center gap-1 text-sm font-medium text-slate-300 md:flex">
+      {
+        navLinks.map((link) => (
+          <a href={link.href} class="rounded-full px-4 py-2 transition hover:bg-white/5 hover:text-white">
+            {link.label}
+          </a>
+        ))
+      }
       <a
         href={diagnosticoWhatsapp}
         target="_blank"
         rel="noopener"
-        class="rounded-full bg-turq px-5 py-2 font-semibold text-andes transition hover:bg-turq-400"
+        class="ml-3 rounded-full bg-turq px-5 py-2 font-semibold text-andes-950 shadow-[0_0_24px_-8px_rgb(0_180_166/0.9)] transition hover:bg-turq-400"
       >
         Diagnóstico gratis<NewTab />
       </a>
@@ -26,7 +35,8 @@ import { navLinks, diagnosticoWhatsapp } from '../data/site';
 
     <button
       id="menu-btn"
-      class="text-white md:hidden"
+      type="button"
+      class="flex h-11 w-11 items-center justify-center rounded-full text-white transition hover:bg-white/10 md:hidden"
       aria-label="Abrir menú"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -36,14 +46,23 @@ import { navLinks, diagnosticoWhatsapp } from '../data/site';
     </button>
   </nav>
 
-  <div id="mobile-menu" class="hidden border-t border-white/10 px-4 pb-4 md:hidden">
-    <div class="flex flex-col gap-3 pt-3 text-slate-300">
-      {navLinks.map((link) => <a href={link.href} class="py-2">{link.label}</a>)}
+  <div
+    id="mobile-menu"
+    class="mx-auto mt-2 hidden max-w-6xl rounded-3xl border border-white/10 bg-andes-950/95 p-4 shadow-xl shadow-black/40 backdrop-blur-xl md:hidden"
+  >
+    <div class="flex flex-col gap-1 text-slate-300">
+      {
+        navLinks.map((link) => (
+          <a href={link.href} class="rounded-2xl px-4 py-3 transition hover:bg-white/5 hover:text-white">
+            {link.label}
+          </a>
+        ))
+      }
       <a
         href={diagnosticoWhatsapp}
         target="_blank"
         rel="noopener"
-        class="mt-2 flex min-h-12 items-center justify-center rounded-full bg-turq px-5 py-3 font-semibold text-andes"
+        class="mt-2 flex min-h-12 items-center justify-center rounded-full bg-turq px-5 py-3 font-semibold text-andes-950"
       >
         Diagnóstico gratis<NewTab />
       </a>
@@ -52,18 +71,32 @@ import { navLinks, diagnosticoWhatsapp } from '../data/site';
 </header>
 
 <script>
+  const header = document.getElementById('site-header');
   const button = document.getElementById('menu-btn');
   const menu = document.getElementById('mobile-menu');
+
+  if (header) {
+    const updateScrolled = (): void => header.toggleAttribute('data-scrolled', window.scrollY > 24);
+    updateScrolled();
+    window.addEventListener('scroll', updateScrolled, { passive: true });
+  }
 
   if (button && menu) {
     const setOpen = (open: boolean): void => {
       menu.classList.toggle('hidden', !open);
       button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
       button.querySelector('.menu-open')?.classList.toggle('hidden', open);
       button.querySelector('.menu-close')?.classList.toggle('hidden', !open);
     };
 
     button.addEventListener('click', () => setOpen(menu.classList.contains('hidden')));
     menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !menu.classList.contains('hidden')) {
+        setOpen(false);
+        button.focus();
+      }
+    });
   }
 </script>

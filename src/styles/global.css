@@ -4,20 +4,31 @@
 @theme {
   --color-andes: #0f2a43;
   --color-andes-700: #16395a;
+  --color-andes-800: #0d2338;
   --color-andes-900: #0a1e30;
+  --color-andes-950: #06121d; /* fondo general del sitio */
 
   --color-turq: #00b4a6;
   --color-turq-50: #e6f8f6;
-  --color-turq-400: #1fd1c2;
+  --color-turq-400: #1fd1c2; /* texto turquesa sobre fondo oscuro */
   --color-turq-600: #00978b;
-  --color-turq-700: #007f74; /* texto pequeño sobre fondo claro: contraste AA */
+  --color-turq-700: #007f74;
 
   --font-sans: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
+
+  --animate-shimmer: shimmer 6s linear infinite;
+  --animate-spin-slow: spin 140s linear infinite;
+
+  @keyframes shimmer {
+    to {
+      background-position: 200% center;
+    }
+  }
 }
 
 /*
  * Foco visible al navegar con teclado (no aparece al hacer clic con el mouse).
- * Doble anillo: turquesa por fuera y azul Andes por dentro, así se ve tanto en secciones claras como oscuras.
+ * Doble anillo: turquesa por fuera y azul Andes por dentro.
  */
 :where(a, button, [tabindex]):focus-visible {
   outline: 3px solid var(--color-turq);
@@ -28,4 +39,37 @@
 /* El destino del enlace "Saltar al contenido" recibe el foco, pero no necesita el anillo. */
 main:focus {
   outline: none;
+}
+
+/*
+ * Aparición al hacer scroll: cualquier elemento con data-reveal entra subiendo suavemente
+ * (src/scripts/reveal.ts le agrega .is-visible). Solo con JS activo y si el usuario no pidió
+ * reducir el movimiento; si no, todo se ve normal desde el principio.
+ * --reveal-delay escalona los elementos de una misma fila.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Ruta de "Cómo trabajo": la línea se dibuja hacia la cumbre al aparecer. */
+  .js [data-reveal] .trail-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+  }
+
+  .js [data-reveal].is-visible .trail-draw {
+    stroke-dashoffset: 0;
+  }
 }

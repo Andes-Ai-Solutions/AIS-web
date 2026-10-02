@@ -1,22 +1,42 @@
 ---
 import { Icon } from 'astro-icon/components';
+import Card from './Card.astro';
 import SectionHeader from './SectionHeader.astro';
 import { services } from '../data/site';
+
+// Grilla tipo "bento": en escritorio la primera y la última tarjeta ocupan dos columnas.
+const wide = (i: number): boolean => i === 0 || i === services.length - 1;
 ---
 
-<section id="servicios" class="bg-slate-50 py-20 sm:py-28">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6">
-    <SectionHeader eyebrow="Servicios" title="Tecnología hecha a la medida de tu negocio" />
+<section id="servicios" class="relative isolate overflow-hidden bg-andes-900 py-24 sm:py-32">
+  <div
+    class="pointer-events-none absolute top-0 left-1/2 -z-10 h-96 w-[48rem] -translate-x-1/2 rounded-full bg-turq/10 blur-3xl"
+  >
+  </div>
 
-    <div class="mt-14 grid gap-6 md:grid-cols-2">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <SectionHeader
+      eyebrow="Servicios"
+      title="Tecnología hecha a la medida de tu negocio"
+      description="Nada de plantillas genéricas: cada solución se diseña a partir de cómo trabajas hoy."
+    />
+
+    <div class="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
       {
-        services.map((s) => (
-          <div class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-andes text-turq">
-              <Icon name={s.icon} class="h-6 w-6" />
-            </div>
-            <h3 class="mt-5 text-xl font-semibold text-andes">{s.title}</h3>
-            <p class="mt-2 leading-relaxed">{s.description}</p>
+        services.map((s, i) => (
+          <div data-reveal style={`--reveal-delay: ${i * 90}ms`} class:list={[{ 'lg:col-span-2': wide(i) }]}>
+            <Card class="p-8 sm:p-10">
+              <!-- Ícono gigante de fondo -->
+              <Icon
+                name={s.icon}
+                class="pointer-events-none absolute -right-8 -bottom-8 -z-10 h-44 w-44 text-white/[0.03] transition duration-500 group-hover:-rotate-6 group-hover:text-turq/[0.07]"
+              />
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-turq to-turq-600 text-andes-950 shadow-[0_0_30px_-8px_rgb(0_180_166/0.8)]">
+                <Icon name={s.icon} class="h-7 w-7" />
+              </div>
+              <h3 class="mt-7 text-xl font-semibold text-white sm:text-2xl">{s.title}</h3>
+              <p class="mt-3 max-w-md leading-relaxed text-slate-400">{s.description}</p>
+            </Card>
           </div>
         ))
       }
