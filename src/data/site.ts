@@ -8,7 +8,7 @@ export const site = {
   description:
     'Desarrollo de software a la medida y soluciones con IA para pymes. Diagnóstico gratis de 30 minutos, sin compromiso.',
   email: 'andesai.solutions@gmail.com',
-  whatsapp: '573046123335',
+  whatsapp: '573024001627',
   linkedin: 'https://www.linkedin.com/company/146630745',
   instagram: 'https://www.instagram.com/andesaisolutions',
   location: 'Manizales, Colombia',
